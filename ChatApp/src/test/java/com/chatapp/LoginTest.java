@@ -13,14 +13,14 @@ public class LoginTest {
         // Test: Username contains underscore and is <= 5 chars
         assertTrue(login.checkUserName());
 
-        // Negative test based on image_f8d263: "kyle!!!!!!!"
+        // Negative test based on kyle!!!!!!!
         Login failUser = new Login("kyle!!!!!!!", "password", "Kyle", "Smith", "08966553");
         assertFalse(failUser.checkUserName());
     }
 
     @Test
     public void testCheckPasswordComplexity() {
-        // Test: Password meets requirements
+        // Test Password meets requirements
         assertTrue(login.checkPasswordComplexity());
 
         // Negative test: "password"
@@ -33,7 +33,7 @@ public class LoginTest {
         // Test: Correct format +27...
         assertTrue(login.checkCellPhoneNumber());
 
-        // Negative test based on image_f8d2e3: "08966553"
+        // Negative test based on 08966553
         Login failPhone = new Login("kyle_1", "Ch&<sec@ke99!", "Kyle", "Smith", "08966553");
         assertFalse(failPhone.checkCellPhoneNumber());
     }
